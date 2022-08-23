@@ -16,12 +16,15 @@ const TextEditor = () => {
         const selectedTextRange = userSelection?.getRangeAt(0)
         selectedTextRange?.surroundContents(boldElement)
     }
-
+    const makeBold = () => {
+        // console.log(document.execCommand("bold"))
+        document.execCommand("some")
+    }
     return (
         <div className='w-screen h-screen flex justify-center items-center bg-blue-700/75 '>
             <div className="bg-white w-[50%] rounded-md flex flex-col overflow-hidden h-[60%]" >
 
-                <div className='toolbar w-full p-2 flex gap-2 border border-black/30 rounded-md'>
+                <div className='toolbar w-full p-2 flex gap-8 border border-black/30 rounded-md'>
                     {/* <span className='p-1 hover:bg-blue-400 rounded-sm duration-150 cursor-pointer'>H1</span> */}
                     <div className=" w-8">
                         <select onChange={changeHeaderStyle} name="tag" className='p-2 hover:bg-blue-400 duration-200 outline-none rounded-sm cursor-pointer' id="tag">
@@ -33,10 +36,7 @@ const TextEditor = () => {
                         </select>
 
                     </div>
-                    <span className='p-2 border border-black/10 mr-3 cursor-pointer' onClick={() => {
-                        console.log("clicked")
-                        console.log(document.createRange())
-                    }}>Bold</span>
+                    <span className='p-2 border border-black/10 mr-3 cursor-pointer' onClick={makeBold}>Bold</span>
                 </div>
                 <div className='w-full'>
                     <div contentEditable={true} className='w-full  bg-red-100 h-64' ></div>
